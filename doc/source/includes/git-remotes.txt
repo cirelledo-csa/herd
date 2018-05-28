@@ -1,0 +1,3 @@
+git remote -v
+origin	https://git-codecommit.us-west-2.amazonaws.com/v1/repos/container-app-ref-arch (fetch)
+origin	https://git-codecommit.us-west-2.amazonaws.com/v1/repos/container-app-ref-arch (push)

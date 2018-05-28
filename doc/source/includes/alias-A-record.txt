@@ -1,0 +1,11 @@
+aws route53 list-resource-record-sets --hosted-zone-id /hostedzone/Z2TDD5FNI0C5WG | jq '.ResourceRecordSets[] | select(.Name | match("container-app-ref-arch-poc.segpoc.devops.ucop.edu."))' | json2yaml
+Name: container-app-ref-arch-poc.segpoc.devops.ucop.edu.
+Type: A
+AliasTarget:
+  HostedZoneId: Z1H1FL5HABSF5
+  DNSName: conta-loadb-qhqhefxotsn7-80074524.us-west-2.elb.amazonaws.com.
+  EvaluateTargetHealth: false
+
+host conta-loadb-qhqhefxotsn7-80074524.us-west-2.elb.amazonaws.com
+conta-loadb-qhqhefxotsn7-80074524.us-west-2.elb.amazonaws.com has address 34.212.98.37
+conta-loadb-qhqhefxotsn7-80074524.us-west-2.elb.amazonaws.com has address 52.38.145.172

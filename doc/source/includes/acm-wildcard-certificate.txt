@@ -1,0 +1,31 @@
+aws acm describe-certificate --certificate-arn arn:aws:acm:us-west-2:183454483292:certificate/6451e1d1-5ee3-4fba-8064-0ba087222018 | json2yaml
+Certificate:
+  CertificateArn: arn:aws:acm:us-west-2:183454483292:certificate/6451e1d1-5ee3-4fba-8064-0ba087222018
+  DomainName: '*.segpoc.devops.ucop.edu'
+  SubjectAlternativeNames:
+  - '*.segpoc.devops.ucop.edu'
+  DomainValidationOptions:
+  - DomainName: '*.segpoc.devops.ucop.edu'
+    ValidationEmails:
+    - domainadmin@ucop.edu
+    - webmaster@ucop.edu
+    - domaintech@ucop.edu
+    - hostmaster@ucop.edu
+    - admin@ucop.edu
+    - administrator@ucop.edu
+    - postmaster@ucop.edu
+    ValidationDomain: ucop.edu
+    ValidationStatus: SUCCESS
+  Serial: 0a:15:ca:9b:b7:ea:28:18:57:c0:ba:cc:b8:fb:08:e8
+  Subject: CN=*.segpoc.devops.ucop.edu
+  Issuer: Amazon
+  CreatedAt: 1510088211.0
+  IssuedAt: 1510088674.0
+  Status: ISSUED
+  NotBefore: 1510012800.0
+  NotAfter: 1544184000.0
+  KeyAlgorithm: RSA-2048
+  SignatureAlgorithm: SHA256WITHRSA
+  InUseBy:
+  - arn:aws:elasticloadbalancing:us-west-2:183454483292:loadbalancer/app/conta-LoadB-QHQHEFXOTSN7/eebf46a1024c6074
+  Type: AMAZON_ISSUED

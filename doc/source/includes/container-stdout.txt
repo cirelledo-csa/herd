@@ -1,0 +1,10 @@
+docker exec -it apache bash
+root@73b25a85319a:/usr/local/apache2# diff conf/httpd.conf  conf/original/httpd.conf
+310c310
+< ErrorLog /proc/self/fd/2
+---
+> ErrorLog "logs/error_log"
+339c339
+<     CustomLog /proc/self/fd/1 common
+---
+>     CustomLog "logs/access_log" common

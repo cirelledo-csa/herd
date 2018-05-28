@@ -1,0 +1,12 @@
+aws cloudformation describe-stacks  --stack-name container-app-ref-arch | jq .Stacks[].Outputs |json2yaml
+- OutputKey: AppURL
+  OutputValue: https://container-app-ref-arch-poc.segpoc.devops.ucop.edu.
+- OutputKey: LoadBalancerDNS
+  OutputValue: conta-LoadB-QHQHEFXOTSN7-80074524.us-west-2.elb.amazonaws.com
+  Description: application load balancer dns
+- OutputKey: RepoURL
+  OutputValue: https://git-codecommit.us-west-2.amazonaws.com/v1/repos/container-app-ref-arch
+  Description: url of git repo defining infrastructure that hosts this app
+- OutputKey: ImageRepoURI
+  OutputValue: 183454483292.dkr.ecr.us-west-2.amazonaws.com/container-app-ref-arch
+  Description: uri of ecr for docker images

@@ -1,0 +1,25 @@
+aws route53 list-hosted-zones | json2yaml
+HostedZones:
+- Id: /hostedzone/Z2TDD5FNI0C5WG
+  Name: segpoc.devops.ucop.edu.
+  CallerReference: account-H-HostedZo-M4TQIG37S3E4
+  Config:
+    Comment: account hosted zone subdomain TeamTag.DNSRoot
+    PrivateZone: false
+  ResourceRecordSetCount: 3
+
+aws route53 get-hosted-zone --id /hostedzone/Z2TDD5FNI0C5WG | json2yaml
+HostedZone:
+  Id: /hostedzone/Z2TDD5FNI0C5WG
+  Name: segpoc.devops.ucop.edu.
+  CallerReference: account-H-HostedZo-M4TQIG37S3E4
+  Config:
+    Comment: account hosted zone subdomain TeamTag.DNSRoot
+    PrivateZone: false
+  ResourceRecordSetCount: 3
+DelegationSet:
+  NameServers:
+  - ns-1512.awsdns-61.org
+  - ns-329.awsdns-41.com
+  - ns-2002.awsdns-58.co.uk
+  - ns-746.awsdns-29.net
