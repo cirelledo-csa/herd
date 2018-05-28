@@ -1,6 +1,0 @@
-          LogConfiguration:
-            LogDriver: awslogs
-            Options:
-              awslogs-group: !Ref CloudwatchLogsGroup
-              awslogs-region: !Ref AWS::Region
-              awslogs-stream-prefix: !Join ['-', [!Ref AppTag, !Ref EnvTag, !Ref Tag]]

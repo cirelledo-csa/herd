@@ -19,7 +19,9 @@ Intro
 =====
 
 This is an attempt to define the rules for how we will manage cloud first
-applications.
+applications. Details on howto can be found in the HerdWiki_
+
+.. _HerdWiki: ssh://git@github.com/ucopacme/herd.wiki.git
 
 Rules of the game
 -----------------
