@@ -1,3 +1,20 @@
+Welcome to the Herd project.
+============================
+
+      .. figure:: images/herd.jpg
+        :align: center
+        :alt: giddyup, cattle not pets
+        :figclass: align-center
+
+
+
+      .. note::  definition of a Herd_
+
+        * noun - a group of people usually having a common bond
+        * verb - to form a group or move as a group
+
+        .. _Herd: https://www.merriam-webster.com/dictionary/herd
+        
 Intro
 =====
 
