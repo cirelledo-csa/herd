@@ -90,6 +90,6 @@ first applications.
     * do sec people like it?
     * do managers like it?
     * will it be easy to hire a competent dev/sec/ops/manager to work in this
-      enviroment?
+      environment?
 
       * would you would want to work with this dev/sec/ops/manager?
