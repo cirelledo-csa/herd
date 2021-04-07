@@ -1,14 +1,9 @@
 # bootstap dev tools
 
-clone this repo with:
+clone this repo and install pre-requisites with:
 
 ```
-mkdir -p ~/github/ucopacme
-git clone  https://github.com/ucopacme/herd.git ~/github/ucopacme/
+mkdir -p ~/github/ucopacme  && git clone  https://github.com/ucopacme/herd.git ~/github/ucopacme/herd
+cd ~/github/ucopacme/herd/bin && sh doall.sh
 ```
-install pre-requisites with:
-
-```
-cd ~/github/ucopacme/bin
-sh doall.sh
 ```
