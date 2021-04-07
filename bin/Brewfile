@@ -1,0 +1,7 @@
+tap "homebrew/bundle"
+tap "homebrew/core"
+brew "gh"
+brew "pipenv"
+brew "tfenv"
+brew "terraform_landscape"
+brew "terragrunt", args: ["ignore-dependencies"]
