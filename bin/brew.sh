@@ -7,7 +7,6 @@ then
 	git clone https://github.com/Homebrew/brew ~/.linuxbrew/Homebrew
 	mkdir ~/.linuxbrew/bin
 	ln -s ../Homebrew/bin/brew ~/.linuxbrew/bin
-	exit
 else
 	echo "brew found, nothing doing"
 fi

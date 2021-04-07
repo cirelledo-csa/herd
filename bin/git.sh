@@ -41,14 +41,14 @@ fi
 FILE=~/.ssh/ucopacme.pub
 if [ -f $FILE ]
 then
-	echo "your public ssh key is:"
-	echo 
-	cat $FILE
-	echo
 	echo "configure ssh to use this key for github acess by adding a section to ~/.ssh/config file"
 	echo
 	echo "Host github.com"
 	echo "  IdentityFile ~/.ssh/ucopacme"
+	echo
+	echo "your public ssh key is:"
+	echo 
+	cat $FILE
 	echo
 	echo "copy your public ssh key to github by going to https://github.com/settings/ssh/new"
 else
