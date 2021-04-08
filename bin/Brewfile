@@ -1,6 +1,8 @@
 tap "homebrew/bundle"
 tap "homebrew/core"
+brew "awscli"
 brew "gh"
+brew "jq"
 brew "pipenv"
 brew "tfenv"
 brew "terraform_landscape"
