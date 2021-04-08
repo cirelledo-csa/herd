@@ -8,4 +8,4 @@ brew "pre-commit"
 brew "tfenv"
 brew "terraform_landscape"
 brew "terragrunt", args: ["ignore-dependencies"]
-cask "aws-vault"
+brew "aws-vault"
