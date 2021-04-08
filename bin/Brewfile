@@ -1,7 +1,10 @@
 tap "homebrew/bundle"
 tap "homebrew/core"
+brew "awscli"
 brew "gh"
 brew "pipenv"
+brew "pre-commit"
 brew "tfenv"
 brew "terraform_landscape"
 brew "terragrunt", args: ["ignore-dependencies"]
+cask "aws-vault"
