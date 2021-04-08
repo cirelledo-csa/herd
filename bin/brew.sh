@@ -11,3 +11,4 @@ else
 	echo "brew found, nothing doing"
 fi
 brew bundle --file=Brewfile
+brew link --overwrite  awscli
