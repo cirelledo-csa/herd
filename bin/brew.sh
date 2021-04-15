@@ -10,5 +10,6 @@ then
 else
 	echo "brew found, nothing doing"
 fi
+eval "$(~/.linuxbrew/bin/brew shellenv)"
 brew bundle --file=Brewfile
 brew link --overwrite  awscli
