@@ -23,6 +23,7 @@ brew "parallel"
 brew "pipenv"
 brew "pre-commit"
 brew "shellcheck"
+brew "st"
 brew "terraform-docs"
 brew "terraform_landscape"
 brew "terragrunt", args: ["ignore-dependencies"]
