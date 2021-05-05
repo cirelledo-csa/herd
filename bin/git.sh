@@ -31,20 +31,20 @@ fi
 git config --global credential.helper  '!aws codecommit credential-helper $@'
 git config --global credential.UseHttpPath  'true'
 git config --global core.editor  'vim'
-FILE=~/.ssh/ucopacme
+FILE=~/.ssh/github
 if [ -f $FILE ]; then
 	echo "File $FILE exists. doing nothing"
 else
 	echo "File $FILE does not exist. creating ssh key for github"
 	ssh-keygen -f $FILE
 fi
-FILE=~/.ssh/ucopacme.pub
+FILE=~/.ssh/github.pub
 if [ -f $FILE ]
 then
 	echo "configure ssh to use this key for github acess by adding a section to ~/.ssh/config file"
 	echo
 	echo "Host github.com"
-	echo "  IdentityFile ~/.ssh/ucopacme"
+	echo "  IdentityFile ~/.ssh/github"
 	echo
 	echo "your public ssh key is:"
 	echo 
