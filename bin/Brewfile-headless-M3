@@ -15,8 +15,8 @@ cask "aws-vault-binary"       # Securely store MFA/Access Keys in Keychain
 # --- Terraform / OpenTofu Ecosystem ---
 brew "opentofu"
 brew "terragrunt"
-brew "tfswitch"               # Fast version switching
-brew "tgswitch"
+brew "warrensbox/tap/tfswitch"
+brew "warrensbox/tap/tgswitch"
 brew "tflint"
 brew "checkov"
 brew "infracost"              # "How much will this cost me?"
