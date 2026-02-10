@@ -1,5 +1,4 @@
 # --- Taps ---
-tap "homebrew/bundle"
 tap "aws/tap"
 tap "common-fate/tap"
 tap "warrensbox/tap"
