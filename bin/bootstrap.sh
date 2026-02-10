@@ -84,6 +84,12 @@ if [ ! -d "/usr/local/bin" ]; then
     sudo chown -R $(whoami):admin /usr/local/bin
 fi
 
+printf "⚡️ Optimizing Power Settings for Remote Access...\n"
+# Ensure the Mac doesn't sleep when the lid is closed/idle
+sudo pmset -a disablesleep 1
+# Wake on network access (Magic Packet)
+sudo pmset -a womp 1
+
 # --- 7. Architecture Configuration (SSH-over-SSM) ---
 echo "🔗 Configuring SSH-over-SSM..."
 mkdir -p ~/.ssh
