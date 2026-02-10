@@ -77,6 +77,13 @@ echo "📦 Installing Architect Suite via Brewfile..."
 # This command reads your Brewfile and installs EVERYTHING listed at once
 brew bundle --file=Brewfile-headless-M3
 
+printf "📁 Preparing local bin directories...\n"
+# Ensure /usr/local/bin exists (common issue on Apple Silicon)
+if [ ! -d "/usr/local/bin" ]; then
+    sudo mkdir -p /usr/local/bin
+    sudo chown -R $(whoami):admin /usr/local/bin
+fi
+
 # --- 7. Architecture Configuration (SSH-over-SSM) ---
 echo "🔗 Configuring SSH-over-SSM..."
 mkdir -p ~/.ssh
