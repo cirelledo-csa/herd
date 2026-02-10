@@ -72,7 +72,10 @@ fi
 # --- 6. AWS Architect Core Stack ---
 echo "📦 Installing Architect Suite..."
 brew update
-brew install awscli aws-session-manager-plugin opentofu terragrunt jq yq granted colima docker
+# --- 6. AWS Architect Core Stack ---
+echo "📦 Installing Architect Suite via Brewfile..."
+# This command reads your Brewfile and installs EVERYTHING listed at once
+brew bundle --file=Brewfile-macosx-headless
 
 # --- 7. Architecture Configuration (SSH-over-SSM) ---
 echo "🔗 Configuring SSH-over-SSM..."
