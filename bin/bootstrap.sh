@@ -1,4 +1,4 @@
-##!/bin/bash
+#!/bin/bash
 # --- M3 Headless AWS Architect Bootstrap (macOS 26.x Optimized) ---
 # Target: MacBook Air M3 (16GB RAM) - Headless via SSH/Tailscale
 
@@ -56,24 +56,28 @@ if ! command -v brew &> /dev/null; then
     echo "🍺 Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-    # Setup PATH for current session and future shells
+    # Setup PATH for current session
     eval "$(/opt/homebrew/bin/brew shellenv)"
 
-    # ADDED: Idempotent path injection
-    if ! grep -q "brew shellenv" "$HOME/.zprofile"; then
-        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "$HOME/.zprofile"
-    fi
+    # Idempotent path injection for ALL shell types
+    for rcfile in "$HOME/.zprofile" "$HOME/.zshrc"; do
+        if [ -f "$rcfile" ] && ! grep -q "brew shellenv" "$rcfile"; then
+            echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "$rcfile"
+        elif [ ! -f "$rcfile" ]; then
+            echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "$rcfile"
+        fi
+    done
 fi
 
 # --- 6. AWS Architect Core Stack ---
 echo "📦 Installing Architect Suite..."
+brew update
 brew install awscli aws-session-manager-plugin opentofu terragrunt jq yq granted colima docker
 
 # --- 7. Architecture Configuration (SSH-over-SSM) ---
 echo "🔗 Configuring SSH-over-SSM..."
 mkdir -p ~/.ssh
-# ADDED: Prevent duplicate entries in config
-if ! grep -q "AWS-StartSSMConversationStream" ~/.ssh/config 2>/dev/null; then
+if [ ! -f ~/.ssh/config ] || ! grep -q "AWS-StartSSMConversationStream" ~/.ssh/config 2>/dev/null; then
 cat <<EOF >> ~/.ssh/config
 
 # AWS SSM Tunneling configuration
