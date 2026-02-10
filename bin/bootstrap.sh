@@ -1,8 +1,8 @@
-#!/bin/bash
+##!/bin/bash
 # --- M3 Headless AWS Architect Bootstrap (macOS 26.x Optimized) ---
 # Target: MacBook Air M3 (16GB RAM) - Headless via SSH/Tailscale
 
-set -e # Exit on error
+set -e
 
 # --- 1. System Identity ---
 echo "⚙️  Configuring System Identity..."
@@ -10,20 +10,19 @@ sudo scutil --set ComputerName "M3-Headless-UCSD"
 sudo scutil --set HostName "M3-Headless-UCSD"
 sudo scutil --set LocalHostName "M3-Headless-UCSD"
 
-# --- 2. Headless Xcode Tooling (The Fix for 'git' and 'brew') ---
+# --- 2. Headless Xcode Tooling ---
 if ! xcode-select -p &> /dev/null; then
     echo "🛠️  Installing Xcode Command Line Tools (Headless Fix)..."
-    # Create the placeholder to bypass the GUI dialog requirement
     touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
-    # Identify the specific CLT update available for this OS version
     PROD=$(softwareupdate -l | grep "\*.*Command Line" | tail -n 1 | awk -F"*" '{print $2}' | sed -e 's/^ *//' | tr -d '\n')
     sudo softwareupdate -i "$PROD" --verbose
     rm /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
 fi
 
-# --- 3. Persistence Daemon (Caffeinate Engine) ---
-echo "☕ Ensuring M3 remains awake during long infrastructure applies..."
-cat <<EOF | sudo tee /Library/LaunchDaemons/com.headless.caffeinate.plist
+# --- 3. Persistence Daemon ---
+if [ ! -f /Library/LaunchDaemons/com.headless.caffeinate.plist ]; then
+    echo "☕ Creating Caffeinate Engine..."
+    cat <<EOF | sudo tee /Library/LaunchDaemons/com.headless.caffeinate.plist
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -42,41 +41,46 @@ cat <<EOF | sudo tee /Library/LaunchDaemons/com.headless.caffeinate.plist
 </dict>
 </plist>
 EOF
-sudo launchctl load -w /Library/LaunchDaemons/com.headless.caffeinate.plist
+    sudo launchctl load -w /Library/LaunchDaemons/com.headless.caffeinate.plist
+fi
 
 # --- 4. Remote & Power Management ---
-echo "🖥️  Activating Remote Management & Power Policies..."
+echo "🖥️  Activating Remote Management..."
 sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart \
 -activate -configure -access -on -privs -all -restart -agent
 sudo systemsetup -setremotelogin on
-# Set policies: No sleep, wake on network, auto-restart on power failure
 sudo pmset -a sleep 0 displaysleep 0 disksleep 0 womp 1 autorestart 1 disablesleep 1
 
 # --- 5. Tooling: Homebrew & Path Setup ---
 if ! command -v brew &> /dev/null; then
     echo "🍺 Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    
-    # Inject PATH immediately so the rest of the script can use 'brew'
-    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "$HOME/.zprofile"
+
+    # Setup PATH for current session and future shells
     eval "$(/opt/homebrew/bin/brew shellenv)"
+
+    # ADDED: Idempotent path injection
+    if ! grep -q "brew shellenv" "$HOME/.zprofile"; then
+        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "$HOME/.zprofile"
+    fi
 fi
 
 # --- 6. AWS Architect Core Stack ---
-echo "📦 Installing Architect Suite (ARM64 Native)..."
-# Granted: For multi-account SSO management
-# Colima/Docker: For local container testing headlessly
+echo "📦 Installing Architect Suite..."
 brew install awscli aws-session-manager-plugin opentofu terragrunt jq yq granted colima docker
 
 # --- 7. Architecture Configuration (SSH-over-SSM) ---
-echo "🔗 Configuring SSH-over-SSM for Private VPC access..."
+echo "🔗 Configuring SSH-over-SSM..."
 mkdir -p ~/.ssh
+# ADDED: Prevent duplicate entries in config
+if ! grep -q "AWS-StartSSMConversationStream" ~/.ssh/config 2>/dev/null; then
 cat <<EOF >> ~/.ssh/config
 
 # AWS SSM Tunneling configuration
 host i-* mi-*
     ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSMConversationStream --parameters 'portNumber=%p'"
 EOF
+fi
 
 # --- 8. Persistence & Helper Shortcuts ---
 echo "🔄 Finalizing Helper Scripts..."
@@ -91,22 +95,16 @@ sudo fdesetup authrestart
 EOF
 sudo chmod +x /usr/local/bin/remote-reboot
 
-# Rig Status: Thermal and Memory Monitor (Essential for M3 Air)
+# Rig Status
 cat <<'EOF' | sudo tee /usr/local/bin/rig-status
 #!/bin/bash
 printf "\033[1;34m--- M3 Architecture Stats ---\033[0m\n"
 sysctl -n machdep.cpu.brand_string
-printf "\033[1;34m--- Thermal State (Air Passive Cooling) ---\033[0m\n"
+printf "\033[1;34m--- Thermal State ---\033[0m\n"
 sudo powermetrics --samplers thermal --count 1 | grep "Thermal level"
-printf "\033[1;34m--- Memory Pressure (16GB RAM) ---\033[0m\n"
+printf "\033[1;34m--- Memory Pressure ---\033[0m\n"
 memory_pressure | tail -n 1
 EOF
 sudo chmod +x /usr/local/bin/rig-status
 
 echo "✅ ALL SYSTEMS BOOTSTRAPPED."
-echo "-------------------------------------------------------"
-echo "ARCHITECT NOTES:"
-echo "1. Run 'rig-status' to check M3 thermals under load."
-echo "2. Use 'remote-reboot' to bypass FileVault when updating."
-echo "3. Tailscale should be configured next to secure ingress."
-echo "-------------------------------------------------------"
