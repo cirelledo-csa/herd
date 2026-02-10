@@ -75,7 +75,7 @@ brew update
 # --- 6. AWS Architect Core Stack ---
 echo "📦 Installing Architect Suite via Brewfile..."
 # This command reads your Brewfile and installs EVERYTHING listed at once
-brew bundle --file=Brewfile-macosx-headless
+brew bundle --file=Brewfile-headless-M3
 
 # --- 7. Architecture Configuration (SSH-over-SSM) ---
 echo "🔗 Configuring SSH-over-SSM..."

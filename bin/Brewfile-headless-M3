@@ -1,0 +1,52 @@
+# --- Taps ---
+tap "homebrew/bundle"
+tap "aws/tap"
+tap "common-fate/tap"
+tap "warrensbox/tap"
+
+# --- AWS & Multi-Account Management ---
+brew "awscli"
+brew "aws-sam-cli"
+brew "aws-cdk"
+cask "session-manager-plugin" # The "teleport" tool
+brew "granted"                # Assume roles/profiles instantly
+cask "aws-vault-binary"       # Securely store MFA/Access Keys in Keychain
+
+# --- Terraform / OpenTofu Ecosystem ---
+brew "opentofu"
+brew "terragrunt"
+brew "tfswitch"               # Fast version switching
+brew "tgswitch"
+brew "tflint"
+brew "checkov"
+brew "infracost"              # "How much will this cost me?"
+brew "inframap"               # "What does my code look like?"
+brew "terraform-docs"
+
+# --- Containers & Kubernetes ---
+brew "docker"
+brew "colima"                 # Run Docker headlessly on M3 (Saves RAM)
+brew "kubernetes-cli"         # kubectl
+brew "helm"
+
+# --- Modern CLI Tooling (Architect Essentials) ---
+brew "jq"
+brew "yq"
+brew "fzf"                    # Fuzzy search everything
+brew "gh"                     # GitHub CLI
+brew "trivy"                  # Security scanner for everything
+brew "starship"               # Context-aware shell prompt (AWS/TF)
+
+# --- Development Runtimes ---
+brew "python@3.12"
+brew "node"
+brew "go"
+brew "openjdk@17"
+
+# --- Essential Casks (GUI) ---
+cask "visual-studio-code"
+cask "iterm2"
+cask "google-cloud-sdk"       # Better than gcloud-cli cask
+cask "postman"
+cask "slack"
+cask "zoom"
