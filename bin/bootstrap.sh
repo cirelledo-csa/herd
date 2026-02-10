@@ -56,7 +56,7 @@ if ! command -v brew &> /dev/null; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 echo "📦 Installing Tailscale & NoMachine..."
-brew install --cask tailscale nomachine
+brew bundle install --file Brewfile-macosx-headless
 
 echo "✅ ALL SYSTEMS BOOTSTRAPPED."
 echo "-------------------------------------------------------"

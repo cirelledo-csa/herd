@@ -1,0 +1,377 @@
+tap "aws/tap"
+tap "common-fate/tap"
+tap "coursier/formulas"
+tap "databricks/tap"
+tap "github/gh"
+tap "homebrew/bundle"
+tap "homebrew/cask-drivers"
+tap "liamg/tfsec"
+tap "spacelift-io/spacelift"
+tap "thecasualcoder/stable"
+tap "warrensbox/tap"
+# Run your GitHub Actions locally
+brew "act"
+# Static checker for GitHub Actions workflow files
+brew "actionlint"
+# Core application library for C
+brew "glib"
+# Zstandard is a real-time compression algorithm
+brew "zstd"
+# TIFF library and utilities
+brew "libtiff"
+# OpenType text shaping engine
+brew "harfbuzz"
+# C/C++ and Java libraries for Unicode and globalization
+brew "icu4c@78"
+# Framework for layout and rendering of i18n text
+brew "pango"
+# Library to render SVG files using Cairo
+brew "librsvg"
+# Icons for the GNOME project
+brew "adwaita-icon-theme"
+# Automate deployment, configuration, and upgrading
+brew "ansible"
+# Color management engine supporting ICC profiles
+brew "little-cms2"
+# Image format providing lossless and lossy compression for web images
+brew "webp"
+# Utility to check whether MAC addresses are already taken on a LAN
+brew "arping"
+# Collection of portable C++ source libraries
+brew "boost"
+# Formatter/translator for text files to numerous formats
+brew "asciidoc"
+# CLI tool for AWS Athena service
+brew "athenacli"
+# Terraform Pull Request Automation tool
+brew "atlantis"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node"
+# AWS Cloud Development Kit - framework for defining AWS infra as code
+brew "aws-cdk", link: false
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.8"
+# CLI tool to build, test, debug, and deploy Serverless applications using AWS SAM
+brew "aws-sam-cli"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.12"
+# Official Amazon AWS command-line interface
+brew "awscli"
+# Microsoft Azure CLI 2.0
+brew "azure-cli"
+# Bourne-Again SHell, a UNIX command interpreter
+brew "bash"
+# Validating, recursive, caching DNS resolver
+brew "unbound"
+# Emacs dependency management
+brew "cask"
+# Validate CloudFormation templates against the CloudFormation spec
+brew "cfn-lint"
+# JSON Schema CLI
+brew "check-jsonschema"
+# Prevent cloud misconfigurations during build-time for IaC tools
+brew "checkov", link: false
+# Ruby environment tool
+brew "chruby"
+# Cross-platform make
+brew "cmake"
+# Utility that creates projects from templates
+brew "cookiecutter"
+# CSV to Markdown table converter
+brew "csvtomd"
+# Convert text between DOS, UNIX, and Mac formats
+brew "dos2unix"
+# Header files for the dynamic linker
+brew "dyld-headers"
+# AST-based pattern checker for JavaScript
+brew "eslint"
+# Perl lib for reading and writing EXIF metadata
+brew "exiftool"
+# Library for JPEG-2000 image manipulation
+brew "openjpeg"
+# Multi-format archive and compression library
+brew "libarchive"
+# Play, record, convert, and stream select audio and video codecs
+brew "ffmpeg"
+# Library for encoding and decoding .avif files
+brew "libavif"
+# Generate a JSON Schema from Sample JSON
+brew "generate-json-schema"
+# GitHub command-line tool
+brew "gh"
+# Interpreter for PostScript and PDF
+brew "ghostscript"
+# Distributed revision control system
+brew "git"
+# Quickly rewrite git repository history
+brew "git-filter-repo"
+# Simple and efficient way to access statistics in git
+brew "git-quick-stats"
+# Generate introspection data for GObject libraries
+brew "gobject-introspection"
+# GSettings schemas for desktop components
+brew "gsettings-desktop-schemas"
+# Toolkit for creating graphical user interfaces
+brew "gtk+3"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.9"
+# Gnumeric spreadsheet program
+brew "goffice"
+# Make XML documents translatable through PO files
+brew "itstool"
+# GNOME Spreadsheet Application
+brew "gnumeric"
+# GNU Privacy Guard (OpenPGP)
+brew "gnupg"
+# Command-driven, interactive function plotting
+brew "gnuplot"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# Version Control Visualization Tool
+brew "gource"
+# Development kit for the Java programming language
+brew "openjdk", link: true
+# Open-source build automation tool based on the Groovy and Kotlin DSL
+brew "gradle"
+# Easiest way to access your cloud
+brew "granted"
+# Library for manipulating JPEG-2000 images
+brew "jasper"
+# Graph visualization software from AT&T and Bell Labs
+brew "graphviz"
+# GNU grep, egrep and fgrep
+brew "grep"
+# GNU troff text-formatting system
+brew "groff"
+# System/370, ESA/390 and z/Architecture Emulator
+brew "hercules"
+# Convert a JSON IAM Policy into terraform
+brew "iam-policy-json-to-terraform"
+# C/C++ and Java libraries for Unicode and globalization
+brew "icu4c@74"
+# Tools and libraries to manipulate images in select formats
+brew "imagemagick"
+# Cost estimates for Terraform
+brew "infracost"
+# Read your tfstate or HCL to generate a graph
+brew "inframap"
+# Calculate various network masks, etc. from a given IP address
+brew "ipcalc"
+# Update of iperf: measures TCP, UDP, and SCTP bandwidth
+brew "iperf3"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Implementation of JSON Schema for Python
+brew "jsonschema"
+# User-friendly front-end to ssh-agent(1)
+brew "keychain"
+# C library implementing the SSH2 protocol
+brew "libssh2"
+# Sudoless performance monitoring for Apple Silicon processors
+brew "macmon"
+# Text-to-HTML conversion tool
+brew "markdown"
+# Java-based project management
+brew "maven"
+# Fast and user friendly build system
+brew "meson"
+# FTP client with an advanced user interface
+brew "ncftp"
+# HTTP/2 C Library
+brew "nghttp2"
+# Port scanning utility for large networks
+brew "nmap"
+# Flexible test automation for Python
+brew "nox"
+# Manage multiple Node.js versions
+brew "nvm"
+# Tools for one-time password authentication systems
+brew "oath-toolkit"
+# Open source, general-purpose policy engine
+brew "opa"
+# Development kit for the Java programming language
+brew "openjdk@17"
+# 7-Zip (high compression file archiver) implementation
+brew "p7zip"
+# Swiss-army knife of markup format conversion
+brew "pandoc"
+# Shell command parallelization utility
+brew "parallel"
+# Python dependency management tool
+brew "pipenv"
+# Python package management tool
+brew "poetry"
+# Framework for managing multi-language pre-commit hooks
+brew "pre-commit"
+# Protocol buffers (Google's data interchange format)
+brew "protobuf"
+# Password generator
+brew "pwgen"
+# Powerful, clean, object-oriented scripting language
+brew "ruby"
+# Install Ruby, JRuby, Rubinius, TruffleRuby, or mruby
+brew "ruby-install"
+# Safe, concurrent, practical language
+brew "rust"
+# Static analysis and lint tool, for (ba)sh scripts
+brew "shellcheck"
+# HTTP regression testing and benchmarking utility
+brew "siege"
+# Tool to create intelligent and beautiful documentation
+brew "sphinx-doc", link: false
+# Statistics from the command-line
+brew "st"
+# User interface to the TELNET protocol
+brew "telnet"
+# Reads from existing Cloud Providers and generates Terraform code
+brew "terracognita"
+# Tool to generate documentation from Terraform modules
+brew "terraform-docs"
+# Improve Terraform's plan output
+brew "terraform_landscape"
+# Export existing AWS resources to Terraform style (tf, tfstate)
+brew "terraforming"
+# Terraform version manager inspired by rbenv
+brew "tfenv"
+# Linter for Terraform files
+brew "tflint"
+# Terragrunt version manager inspired by tfenv
+brew "tgenv", link: false
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Utilities for interacting with PyPI
+brew "twine"
+# Vi 'workalike' with many additional features
+brew "vim"
+# Internet file retriever
+brew "wget"
+# Network analyzer and capture tool - without graphical user interface
+brew "wireshark"
+# Linter for YAML files
+brew "yamllint"
+# JavaScript package manager
+brew "yarn"
+# Process YAML, JSON, XML, CSV and properties documents from the CLI
+brew "yq"
+# Next-generation plugin manager for zsh
+brew "zplug"
+# Launcher for Coursier
+brew "coursier/formulas/coursier"
+# Command-line interface for the Databricks platform
+brew "databricks/tap/databricks"
+# Static analysis powered security scanner for your terraform code
+brew "liamg/tfsec/tfsec"
+# Spacelift client and CLI
+brew "spacelift-io/spacelift/spacectl"
+# A command-line utility to print the summary of the terraform plan
+brew "thecasualcoder/stable/tf-summarize"
+# The tgswitch command lets you switch between terragrunt versions.
+brew "warrensbox/tap/terragrunt-switcher"
+# The tfswitch command lets you switch between terraform versions.
+brew "warrensbox/tap/tfswitch"
+# The tgswitch command lets you switch between terragrunt versions.
+brew "warrensbox/tap/tgswitch"
+# Communications service
+cask "amazon-chime"
+# Securely stores and accesses AWS credentials in a development environment
+cask "aws-vault-binary"
+# Compact TeX distribution as alternative to the full TeX Live / MacTeX
+cask "basictex"
+# Client for the Box cloud storage service
+cask "box-drive"
+# App to build and share containerised applications and microservices
+cask "docker-desktop"
+# Eclipse IDE for Java EE developers
+cask "eclipse-jee"
+# Web browser
+cask "firefox"
+# Syncing software for Polar Flow products
+cask "flowsync"
+# Set of tools to manage resources and applications hosted on Google Cloud
+cask "gcloud-cli"
+# Disk space cleaner that finds and deletes duplicated and similar files
+cask "gemini"
+# Desktop client for GitHub repositories
+cask "github"
+# Web browser
+cask "google-chrome"
+# Client for the Google Drive storage service
+cask "google-drive"
+# Virtual globe
+cask "google-earth-pro"
+# HTTP and GraphQL Client
+cask "insomnia"
+# IDE for Java development - community edition
+cask "intellij-idea-ce"
+# Terminal emulator as alternative to Apple's Terminal app
+cask "iterm2"
+# AI-powered productivity tool for the command-line
+cask "kiro-cli"
+# Provides access to camera controls
+cask "logitech-camera-settings"
+# Remote desktop client
+cask "microsoft-remote-desktop"
+# Meet, chat, call, and collaborate in just one place
+cask "microsoft-teams"
+# Collaboration platform for API development
+cask "postman"
+# IDE for Python programming - Community Edition
+cask "pycharm-ce"
+# PyCharm IDE with Anaconda plugin
+cask "pycharm-ce-with-anaconda-plugin"
+# Plugin for AWS CLI to start and end sessions that connect to managed instances
+cask "session-manager-plugin"
+# Digital design and prototyping platform
+cask "sketch"
+# Team communication and collaboration software
+cask "slack"
+# Control your Sonos system
+cask "sonos"
+# Music streaming service
+cask "spotify"
+# Agent for Nessus vulnerability scanner
+cask "tenable-nessus-agent"
+# Tool for telling interactive, nonlinear stories
+cask "twine-app"
+# Set up, configure, manage and analyze your UniFi network
+cask "ubiquiti-unifi-controller"
+# Virtual machines UI using QEMU
+cask "utm"
+# Open-source code editor
+cask "visual-studio-code"
+# Video communication and virtual meeting platform
+cask "zoom"
+vscode "amazonwebservices.amazon-q-vscode"
+vscode "amazonwebservices.aws-toolkit-vscode"
+vscode "asciidoctor.asciidoctor-vscode"
+vscode "dbaeumer.vscode-eslint"
+vscode "docker.docker"
+vscode "eamodio.gitlens"
+vscode "esbenp.prettier-vscode"
+vscode "github.vscode-github-actions"
+vscode "hashicorp.terraform"
+vscode "joaompinto.vscode-graphviz"
+vscode "ms-azuretools.vscode-containers"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-python.debugpy"
+vscode "ms-python.isort"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-python.vscode-python-envs"
+vscode "ms-toolsai.jupyter"
+vscode "ms-toolsai.jupyter-keymap"
+vscode "ms-toolsai.jupyter-renderers"
+vscode "ms-toolsai.vscode-jupyter-cell-tags"
+vscode "ms-toolsai.vscode-jupyter-slideshow"
+vscode "ms-vscode-remote.remote-containers"
+vscode "necatiarslan.aws-s3-vscode-extension"
+vscode "omartawfik.github-actions-vscode"
+vscode "scala-lang.scala"
+vscode "scalameta.metals"
+vscode "shd101wyy.markdown-preview-enhanced"
+vscode "tsandall.opa"
+vscode "vscode-icons-team.vscode-icons"
+vscode "vscodevim.vim"
+vscode "yzane.markdown-pdf"
+vscode "yzhang.markdown-all-in-one"
+go "github.com/pcasteran/terraform-graph-beautifier"
