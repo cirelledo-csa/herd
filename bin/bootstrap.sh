@@ -89,6 +89,7 @@ printf "⚡️ Optimizing Power Settings for Remote Access...\n"
 sudo pmset -a disablesleep 1
 # Wake on network access (Magic Packet)
 sudo pmset -a womp 1
+sudo pmset -a networkoversleep 1
 
 # --- 7. Architecture Configuration (SSH-over-SSM) ---
 echo "🔗 Configuring SSH-over-SSM..."
